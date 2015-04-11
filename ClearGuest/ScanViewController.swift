@@ -17,27 +17,29 @@ class ScanViewController: UIViewController, UIAlertViewDelegate, AVCaptureMetada
     let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
     let session = AVCaptureSession()
     var layer: AVCaptureVideoPreviewLayer?
-    
+    let opaqueview : UIView = UIView()
+    let activityIndicator : UIActivityIndicatorView  = UIActivityIndicatorView()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.title = "二维码扫描"
+        self.title = "二维码扫描登录"
         self.view.backgroundColor = UIColor.grayColor()
         
-        let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.Default
-        let item0 = UIBarButtonItem(image:(UIImage(named:"ocrBack.png")), style:(UIBarButtonItemStyle.Bordered), target:self, action:(Selector("backClick")))
-        let flexibleSpaceItem = UIBarButtonItem(barButtonSystemItem : (UIBarButtonSystemItem.FlexibleSpace), target: self, action: nil)
-        toolBar.items = [item0,flexibleSpaceItem,flexibleSpaceItem]
-        toolBar.frame = CGRectMake(0, UIScreen.mainScreen().bounds.size.height-44, 320, 44)
-        self.view.addSubview(toolBar)
+        //绘制等待菊花
+        opaqueview.frame = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height)
+        activityIndicator.frame = CGRectMake(50,50,50,50)
+        activityIndicator.center = opaqueview.center
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.White
+        opaqueview.backgroundColor = UIColor.blackColor()
+        opaqueview.alpha = 0.8
+        self.view.addSubview(opaqueview)
+        opaqueview.addSubview(activityIndicator)
+        activityIndicator.stopAnimating()
+        opaqueview.hidden = true
     }
     
-    func backClick(){
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-   
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.setupCamera()
@@ -46,6 +48,17 @@ class ScanViewController: UIViewController, UIAlertViewDelegate, AVCaptureMetada
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //启动等待菊花
+    func startWaitingImg(){
+        activityIndicator.startAnimating()
+        opaqueview.hidden = false
+    }
+    //关闭等待菊花
+    func stopWaitingImg(){
+        activityIndicator.stopAnimating()
+        opaqueview.hidden = true
     }
     
     func setupCamera(){
@@ -79,7 +92,7 @@ class ScanViewController: UIViewController, UIAlertViewDelegate, AVCaptureMetada
         self.session.stopRunning()
         var stringValue:String?
         if metadataObjects.count > 0 {
-            var metadataObject = metadataObjects[0] as AVMetadataMachineReadableCodeObject
+            var metadataObject = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
             stringValue = metadataObject.stringValue
         }
         
@@ -88,12 +101,13 @@ class ScanViewController: UIViewController, UIAlertViewDelegate, AVCaptureMetada
     }
     
     //处理alert 的button click。 关闭程序
-    func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int){
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int){
         abort()
     }
     
     //包装Form表单 提交login
     func loginToClearGuest(qrCode : String){
+        startWaitingImg()
         let parameters = [
             "username": "guest",
             "password": qrCode,
@@ -103,17 +117,21 @@ class ScanViewController: UIViewController, UIAlertViewDelegate, AVCaptureMetada
         println("teset here:" + qrCode)
         
         var alertView = UIAlertView()
-        alertView.delegate=self
         alertView.title = "clear-guest"
         alertView.message = "登陆成功！"
         alertView.addButtonWithTitle("确认")
         
         Alamofire.request(.POST, "https://webauth-redirect.oracle.com/login.html", parameters: parameters).response { (request, response, data, error) in
+            self.stopWaitingImg()
             if(response?.statusCode == 200){
+                alertView.delegate=self
+                alertView.show()
+            }else{
+                alertView.message = "登陆失败！"
                 alertView.show()
             }
         }
-    
+        
     }
     
     

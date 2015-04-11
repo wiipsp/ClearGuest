@@ -2,8 +2,8 @@
 //  ClearGuestTests.swift
 //  ClearGuestTests
 //
-//  Created by Kobe on 14/12/11.
-//  Copyright (c) 2014年 kobe. All rights reserved.
+//  Created by Kobe on 15/3/28.
+//  Copyright (c) 2015年 Kobe. All rights reserved.
 //
 
 import UIKit
