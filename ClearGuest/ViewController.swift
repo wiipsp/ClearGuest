@@ -153,6 +153,12 @@ class ViewController: UIViewController, UIAlertViewDelegate {
                     alertView.message = "当前服务器返回密码为空，请稍后再试"
                     alertView.addButtonWithTitle("确认")
                     alertView.show()
+                }else if(result!.hasPrefix("<")){
+                    var alertView = UIAlertView()
+                    alertView.title = "clear-guest"
+                    alertView.message = "请先连接到internet，然后再获取密码"
+                    alertView.addButtonWithTitle("确认")
+                    alertView.show()
                 }else{
                     NSKeyedArchiver.archiveRootObject(result!, toFile: ContactFilePath)
                     self.getLatestPwd()

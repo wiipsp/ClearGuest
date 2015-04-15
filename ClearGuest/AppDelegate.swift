@@ -69,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GexinSdkDelegate {
                 
                 let record = String("[APN] \(NSDate()), \(payloadMsg)")
                 
-                logMsg(record)
+//                logMsg(record)
             }
             
             UIApplication.sharedApplication().cancelAllLocalNotifications()
@@ -115,7 +115,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GexinSdkDelegate {
         // [4-EXT]:处理APN
         let payloadMsg: AnyObject? = userInfo["payload"];
         let record = "[APN]\(NSDate()),\(payloadMsg)";
-        logMsg(record);
+//        logMsg(record);
     }
     
     //private Method
@@ -224,7 +224,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GexinSdkDelegate {
         }
         
         let record: String = "\(payloadMsg!)"
-        
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0;
         logMsg(record)
     }
     

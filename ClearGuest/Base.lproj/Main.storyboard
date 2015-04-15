@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="wAh-q6-SMs">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -9,14 +10,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ClearGuest" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="oJ0-ma-pnh"/>
+                        <viewControllerLayoutGuide type="bottom" id="oJu-Pq-OKs"/>
                     </layoutGuides>
                     <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="6yE-06-W4D">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8L-kB-Hld">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8L-kB-Hld">
                                 <rect key="frame" x="64" y="382" width="192" height="34"/>
                                 <state key="normal" title="扫描二维码登陆clear-guest">
                                     <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -26,7 +27,7 @@
                                     <action selector="loginByScan:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4wg-A4-x4m"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97Q-Xm-esb">
+                            <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97Q-Xm-esb">
                                 <rect key="frame" x="52" y="210" width="217" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.2067682059" blue="0.16579654090000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -38,7 +39,7 @@
                                     <action selector="getServerPwd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w02-Af-sqx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m99-hr-V1e">
+                            <button opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m99-hr-V1e">
                                 <rect key="frame" x="52" y="254" width="217" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.2067682059" blue="0.16579654090000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -50,19 +51,19 @@
                                     <action selector="loginByPush:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sag-hv-WJM"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kR-JJ-hbT">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kR-JJ-hbT">
                                 <rect key="frame" x="16" y="102" width="288" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qE8-VK-qdR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qE8-VK-qdR">
                                 <rect key="frame" x="16" y="154" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8L-yd-6J1">
+                            <button opaque="NO" alpha="0.79999999999999982" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8L-yd-6J1">
                                 <rect key="frame" x="52" y="297" width="217" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.2067682059" blue="0.16579654090000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -76,8 +77,23 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="97Q-Xm-esb" secondAttribute="trailing" constant="35" id="9Mz-dE-igb"/>
+                            <constraint firstItem="qE8-VK-qdR" firstAttribute="leading" secondItem="6yE-06-W4D" secondAttribute="leadingMargin" id="AWz-UL-yzv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="S8L-kB-Hld" secondAttribute="trailing" constant="48" id="D03-rC-kkE"/>
+                            <constraint firstItem="l8L-yd-6J1" firstAttribute="leading" secondItem="6yE-06-W4D" secondAttribute="leadingMargin" constant="36" id="DWX-Jz-RwZ"/>
+                            <constraint firstItem="m99-hr-V1e" firstAttribute="leading" secondItem="6yE-06-W4D" secondAttribute="leadingMargin" constant="36" id="JHy-xu-OgW"/>
+                            <constraint firstItem="5kR-JJ-hbT" firstAttribute="leading" secondItem="6yE-06-W4D" secondAttribute="leadingMargin" id="ME7-ic-Bhe"/>
+                            <constraint firstItem="qE8-VK-qdR" firstAttribute="trailing" secondItem="6yE-06-W4D" secondAttribute="trailingMargin" id="Qca-h9-hP2"/>
+                            <constraint firstItem="5kR-JJ-hbT" firstAttribute="trailing" secondItem="6yE-06-W4D" secondAttribute="trailingMargin" id="hQ3-aa-eah"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="m99-hr-V1e" secondAttribute="trailing" constant="35" id="iJA-6Y-CHv"/>
+                            <constraint firstItem="S8L-kB-Hld" firstAttribute="leading" secondItem="6yE-06-W4D" secondAttribute="leadingMargin" constant="48" id="jXH-0N-MmB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="l8L-yd-6J1" secondAttribute="trailing" constant="35" id="mLy-2m-Jef"/>
+                            <constraint firstItem="97Q-Xm-esb" firstAttribute="leading" secondItem="6yE-06-W4D" secondAttribute="leadingMargin" constant="36" id="z5F-CC-pHr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="O5y-lb-q7F"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="exitBtn" destination="l8L-yd-6J1" id="3dA-dK-UeE"/>
                         <outlet property="getServerPwdBtn" destination="97Q-Xm-esb" id="0VS-sv-oI5"/>
@@ -96,24 +112,32 @@
             <objects>
                 <viewController id="N1V-hC-Kkl" customClass="ScanViewController" customModule="ClearGuest" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="MFp-Lh-tjF"/>
-                        <viewControllerLayoutGuide type="bottom" id="HPs-9o-gnc"/>
+                        <viewControllerLayoutGuide type="top" id="6bw-sd-haj"/>
+                        <viewControllerLayoutGuide type="bottom" id="W05-lb-hZc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xMA-iB-Iqa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pick_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="ijf-dN-uO2">
-                                <rect key="frame" x="23" y="74" width="275" height="249"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="将二维码图像置于矩形方框内，离手机摄像头10CM左右，系统会自动识别。" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gj-Gf-igM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="将二维码图像置于矩形方框内，离手机摄像头10CM左右，系统会自动识别。" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gj-Gf-igM">
                                 <rect key="frame" x="5" y="8" width="310" height="58"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="pick_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="ijf-dN-uO2">
+                                <rect key="frame" x="20" y="74" width="281" height="249"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2gj-Gf-igM" firstAttribute="leading" secondItem="xMA-iB-Iqa" secondAttribute="leadingMargin" constant="-11" id="5eZ-nt-zRW"/>
+                            <constraint firstItem="ijf-dN-uO2" firstAttribute="leading" secondItem="xMA-iB-Iqa" secondAttribute="leadingMargin" constant="7" id="FP2-w2-emX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ijf-dN-uO2" secondAttribute="trailing" constant="7" id="MT1-Kd-upF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ijf-dN-uO2" secondAttribute="trailing" constant="3" id="Pom-Et-ibv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2gj-Gf-igM" secondAttribute="trailing" constant="-11" id="b1p-h4-HEr"/>
+                            <constraint firstItem="ijf-dN-uO2" firstAttribute="leading" secondItem="xMA-iB-Iqa" secondAttribute="leadingMargin" constant="4" id="zmN-ME-U7O"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mVe-u1-1cj"/>
                 </viewController>
