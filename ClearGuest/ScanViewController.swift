@@ -122,11 +122,23 @@ class ScanViewController: UIViewController, UIAlertViewDelegate, AVCaptureMetada
         alertView.addButtonWithTitle("确认")
         
         Alamofire.request(.POST, "https://webauth-redirect.oracle.com/login.html", parameters: parameters).response { (request, response, data, error) in
-            self.stopWaitingImg()
             if(response?.statusCode == 200){
+                Alamofire.request(.GET, "http://kobe.ora2000.com/ClearGuestWebservice/rest/test")
+                    .responseString { (_, _, string, _) in
+                        self.stopWaitingImg()
+                        if(string == "Hello World!"){
+                            alertView.delegate=self
+                            alertView.show()
+                        }else{
+                            alertView.message = "登陆失败，请检查密码是否正确。"
+                            alertView.show()
+                        }
+                }
+
                 alertView.delegate=self
                 alertView.show()
             }else{
+                self.stopWaitingImg()
                 alertView.message = "登陆失败！"
                 alertView.show()
             }

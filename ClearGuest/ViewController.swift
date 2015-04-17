@@ -120,8 +120,8 @@ class ViewController: UIViewController, UIAlertViewDelegate {
             println("归档中没有，创建数组")
             pushPwd = String()
         }
-        
-        let response = "当前密码为: \(pushPwd!)"
+        let results:[String] = pushPwd!.componentsSeparatedByString("#")
+        let response =  "\(results.first!)的密码为: \n\(results.last!)"
         localPwd.text = response
     }
     
@@ -176,7 +176,9 @@ class ViewController: UIViewController, UIAlertViewDelegate {
             alertView.show()
         }else{
             if UIDevice.currentDevice().SSID?.lowercaseString == "clear-guest" {
-                loginToClearGuest(pushPwd!)
+                let currntPwd = pushPwd?.componentsSeparatedByString("#").last
+                println("converted pwd: " + currntPwd!)
+                loginToClearGuest(currntPwd!)
             }else{
                 var alertView = UIAlertView()
                 alertView.title = "clear-guest"
@@ -212,11 +214,20 @@ class ViewController: UIViewController, UIAlertViewDelegate {
         alertView.addButtonWithTitle("确认")
         
         Alamofire.request(.POST, "https://webauth-redirect.oracle.com/login.html", parameters: parameters).response { (request, response, data, error) in
-            self.stopWaitingImg()
             if(response?.statusCode == 200){
-                alertView.delegate=self
-                alertView.show()
+                Alamofire.request(.GET, "http://kobe.ora2000.com/ClearGuestWebservice/rest/test")
+                    .responseString { (_, _, string, _) in
+                        self.stopWaitingImg()
+                        if(string == "Hello World!"){
+                            alertView.delegate=self
+                            alertView.show()
+                        }else{
+                            alertView.message = "登陆失败，请检查密码是否正确。"
+                            alertView.show()
+                        }
+                }
             }else{
+                self.stopWaitingImg()
                 alertView.message = "登陆失败！"
                 alertView.show()
             }
